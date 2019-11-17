@@ -1,0 +1,79 @@
+<% include partials/_header %>
+
+    <div class="container ml-4">
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+
+                            <form action="/edit_customer/<%= customer._id %>" method="POST">
+                                <div class="form-group">
+                                    <input type="number" name="customerid" placeholder="Inserta un customer_ID" class="form-control"
+                                        value="<%= customer.customerid %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="lastname" placeholder="Inserta un Lastname" class="form-control"
+                                        value="<%= customer.lastname %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="firstname" placeholder="Inserta un Firstname" class="form-control"
+                                        value="<%= customer.firstname %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="emailaddress" placeholder="Inserta un emailaddress"
+                                        class="form-control" value="<%= customer.emailaddress %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="encryptedpassword" placeholder="Inserta una encryptedpassword"
+                                        class="form-control" value="<%= customer.encryptedpassword %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="street" placeholder="Inserta una street"
+                                        class="form-control" value="<%= customer.street %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="city" placeholder="Inserta una city"
+                                        class="form-control" value="<%= customer.city %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="state" placeholder="Inserta una state"
+                                        class="form-control" value="<%= customer.state %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="ziporpostalcode" placeholder="Inserta una ziporpostalcode"
+                                        class="form-control" value="<%= customer.ziporpostalcode %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="country" placeholder="Inserta una country"
+                                        class="form-control" value="<%= customer.country %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="areacode" placeholder="Inserta una areacode"
+                                        class="form-control" value="<%= customer.areacode %>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="phonenumber" placeholder="Inserta una phonenumber"
+                                        class="form-control" value="<%= customer.phonenumber %>">
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <textarea name="transids" cols="80" class="form-control"
+                                        placeholder="Inserta los transaction ids"><%= customer.works %></textarea>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Update
+                                </button>
+                            </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include partials/_footer %>

@@ -1,0 +1,111 @@
+<% include partials/_header %>
+
+    <div class="container ml-4">
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add_costumer" method="POST">
+                            <div class="form-group">
+                                <input type="number" name="customerid" placeholder="Inserta un Customer_ID" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="lastname" placeholder="Inserta un Lastname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="firstname" placeholder="Inserta un Firstname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="emailaddress" placeholder="Inserta un Address" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="encryptedpassword" placeholder="Inserta un encryptedpassword" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="street" placeholder="Inserta un street" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="city" placeholder="Inserta un city" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="state" placeholder="Inserta un state" class="form-control">
+                            </div>
+                            <div class="form-group">
+                            <input type="text" name="ziporpostalcode" placeholder="Inserta un postal code" class="form-control">
+                            </div>
+                            <div class="form-group">
+                            <input type="text" name="country" placeholder="Inserta un country" class="form-control">
+                            </div>
+                            <div class="form-group">
+                            <input type="text" name="areacode" placeholder="Inserta un areacode" class="form-control">
+                            </div>
+                            <div class="form-group">
+                            <input type="text" name="phonenumber" placeholder="Inserta un phonenumber" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <textarea name="transids" cols="80" class="form-control" placeholder="Inserta los Transid"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Add
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Customer_ID</th>
+                            <th>Lastname</th>
+                            <th>Firstname</th>
+                            <th>Email_Address</th>
+                            <th>Encrypted_Password</th>
+                            <th>Sreet</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Zip_or_PostalCode</th>
+                            <th>Country</th>
+                            <th>Area_Code</th>
+                            <th>Phone_Number</th>
+                            <th>Trans_IDs</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < customers.length; i++) { %>
+                            <tr>
+                                <td><%= customers[i].customerid %></td>
+                                <td><%= customers[i].lastname %></td>
+                                <td><%= customers[i].firstname %></td>
+                                <td><%= customers[i].emailaddress %></td>
+                                <td><%= customers[i].encryptedpassword %></td>
+                                <td><%= customers[i].street %></td>
+                                <td><%= customers[i].city %></td>
+                                <td><%= customers[i].state %></td>
+                                <td><%= customers[i].ziporpostalcode %></td>
+                                <td><%= customers[i].country %></td>
+                                <td><%= customers[i].areacode %></td>
+                                <td><%= customers[i].phonenumber %></td>
+                                <% var trsid = [] %>
+                                <% for(var j = 0; j < customers[i].transids.length; j++) { %>
+                                    <% trsid.push(customers[i].transids[j]); %>
+                                <% } %>
+                                <td><%= trsid.join('\n') %></td>
+                                <td>
+                                    <a href="/delete_customer/<%= customers[i]._id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/edit_customer/<%= customers[i]._id %>" class="btn btn-info">Edit</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+
+<% include partials/_footer %>
