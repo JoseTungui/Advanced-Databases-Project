@@ -1,0 +1,80 @@
+<% include partials/_header %>
+
+    <div class="container ml-4">
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add_transs" method="POST">
+                            <div class="form-group">
+                                <input type="number" name="transactionid" placeholder="Inserta un transactionid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="dateacquired" placeholder="Inserta un dateacquired" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="acquisitionprice" placeholder="Inserta un acquisitionprice" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="askingprice" placeholder="Inserta un askingprice " class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="datesold" placeholder="Inserta una Fecha de datesold" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="salesprice" placeholder="Inserta una Fecha de salesprice" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="customerid" placeholder="Inserta una Fecha de customerid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="workid" placeholder="Inserta una Fecha de workid" class="form-control">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Add
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Transaction_ID</th>
+                            <th>Date_Acquired</th>
+                            <th>Acquisition_Price</th>
+                            <th>Asking_Price</th>
+                            <th>Date_Sold</th>
+                            <th>Sales_Price</th>
+                            <th>Customer_ID</th>
+                            <th>Work_ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < transs.length; i++) { %>
+                            <tr>
+                                <td><%= transs[i].transactionid %></td>
+                                <td><%= transs[i].dateacquired %></td>
+                                <td><%= transs[i].acquisitionprice %></td>
+                                <td><%= transs[i].askingprice %></td>
+                                <td><%= transs[i].datesold %></td>
+                                <td><%= transs[i].salesprice %></td>
+                                <td><%= transs[i].customerid %></td>
+                                <td><%= transs[i].workid %></td>
+                                <td>
+                                    <a href="/delete_transs/<%= transs[i]._id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/edit_transs/<%= transs[i]._id %>" class="btn btn-info">Edit</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+
+<% include partials/_footer %>
