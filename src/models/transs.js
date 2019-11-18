@@ -10,7 +10,7 @@ const Transs_Schema = new Schema({
     salesprice : Number,
     customerid : Number,
     workid : Number
-
-});
+}, 
+{collection: 'transs'});
 
 module.exports = mongoose.model('transs', Transs_Schema);
