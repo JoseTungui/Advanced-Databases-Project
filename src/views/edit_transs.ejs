@@ -1,0 +1,53 @@
+<% include partials/_header %>
+
+    <div class="container ml-4">
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-5 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/edit_transs/<%= trans._id %>" method="POST">
+                            <div class="form-group">
+                                <input type="number" name="transactionid" placeholder="Inserta un transactionid" class="form-control" 
+                                value="<%= trans.transactionid %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="dateacquired" placeholder="Inserta un dateacquired" class="form-control"
+                                value="<%= trans.dateacquired %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="acquisitionprice" placeholder="Inserta un acquisitionprice" class="form-control"
+                                value="<%= trans.acquisitionprice %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="askingprice " placeholder="Inserta un askingprice " class="form-control"
+                                value="<%= trans.askingprice %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="datesold" placeholder="Inserta una Fecha de datesold" class="form-control"
+                                value="<%= trans.datesold %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="salesprice" placeholder="Inserta un salesprice" class="form-control"
+                                value="<%= trans.salesprice %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="customerid" placeholder="Inserta un customerid" class="form-control"
+                                value="<%= trans.customerid %>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="workid" placeholder="Inserta un workid" class="form-control"
+                                value="<%= trans.workid %>">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include partials/_footer %>

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-
+//Welcome Page --------------------------------------------------------------------
 router.get('/', (req, res) => {
     res.render('welcome')});
 
@@ -88,39 +88,39 @@ router.get('/delete_customer/:id', async (req, res) => {
 //Todo esto para transs---------------------------------------------------------------------------------------
 const Transs = require('../models/transs');
 
-router.get('/', async (req, res) => {
+router.get('/transactions', async (req, res) => {
     const transs = await Transs.find();
-    res.render('index', {
+    res.render('transs', {
         transs
     });
 });
 
-router.post('/add', async (req, res) => {
+router.post('/add_transs', async (req, res) => {
     const transs = new Transs(req.body);
     await transs.save();
-    res.redirect('/');
+    res.redirect('/transactions');
 });
 
 // for edit button
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit_transs/:id', async (req, res) => {
     const { id } = req.params;
     const trans = await Transs.findById(id);
-    res.render('edit', {
+    res.render('edit_transs', {
         trans
     });
 });
 
-router.post('/edit/:id', async (req, res) => {
+router.post('/edit_transs/:id', async (req, res) => {
     const { id } = req.params;
     await Transs.update({_id: id}, req.body);
-    res.redirect('/');
+    res.redirect('/transactions');
 });
 
 // for delete button
-router.get('/delete/:id', async (req, res) => {
+router.get('/delete_transs/:id', async (req, res) => {
     const { id } = req.params;
     await Transs.remove({_id: id});
-    res.redirect('/');
+    res.redirect('/transactions');
 });
 
 
