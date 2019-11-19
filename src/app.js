@@ -23,6 +23,7 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/', indexRoutes);
+app.use('/public', express.static('public'));
 
 // starting the server
 app.listen(app.get('port'), () => {
